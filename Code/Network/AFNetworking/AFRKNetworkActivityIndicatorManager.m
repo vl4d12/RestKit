@@ -93,7 +93,9 @@ static NSTimeInterval const kAFRKNetworkActivityIndicatorInvisibilityDelay = 0.1
 }
 
 - (void)updateNetworkActivityIndicatorVisibility {
+#if !(UIKIT_DEFINE_AS_PROPERTIES)
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:[self isNetworkActivityIndicatorVisible]];
+#endif
 }
 
 // Not exposed, but used if activityCount is set via KVC.
